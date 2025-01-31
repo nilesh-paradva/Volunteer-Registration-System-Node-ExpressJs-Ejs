@@ -4,10 +4,8 @@ const app = express();
 const bodyParser = require("body-parser");
 const port = 3001;
 
-
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended:true}));
-
 
 let localData = [];
 
@@ -26,6 +24,13 @@ app.post("/add", (req, res) => {
         id: Math.floor(Math.random() * 10000)
     };
     localData.push(obj);
+    fs.appendFileSync('log/log.txt', `${JSON.stringify(obj)}\n`, (err) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log("data saved");
+    });
     res.redirect("/");
     console.log("volunteer added");
 });
@@ -52,4 +57,5 @@ app.get("/delete/:id", (req, res) => {
 
 app.listen(port, (req, res) => {
     console.log(`Server is running on port ${port}`, `http://localhost:${port}`);
+    fs.writeFile('log/log.txt', '', () => console.log('file data Cleared'));
 });
