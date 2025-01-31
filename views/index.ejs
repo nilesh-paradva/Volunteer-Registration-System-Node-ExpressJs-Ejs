@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <title>Register New Volunteers</title>
+</head>
+
+<body
+    style="height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column; font-family: 'Courier New', Courier, monospace;">
+    <form action="/add" method="post"
+        style="max-width: 400px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px 0px #000;">
+        <h2 style="text-align: center;">Volunteer Registration Form</h2>
+
+        <label style="font-weight: bold;">Name:</label>
+        <input type="text" name="name"
+            style="outline: none; width: 100%; padding: 8px; margin: 6px 0px; border: 1px solid #d2c6c6; border-radius: 5px;">
+
+        <label style="font-weight: bold;">Email:</label>
+        <input type="email" name="email"
+            style="outline: none; width: 100%; padding: 8px; margin: 6px 0px;  border: 1px solid #d2c6c6; border-radius: 5px;">
+
+        <label style="font-weight: bold;">Phone Number:</label>
+        <input type="tel" name="phone"
+            style="outline: none; width: 100%; padding: 8px; margin: 6px 0px; border: 1px solid #d2c6c6; border-radius: 5px;">
+
+        <label style="font-weight: bold;">Skills:</label>
+        <input type="text" name="skills"
+            style="outline: none; width: 100%; padding: 8px; margin: 6px 0px; border: 1px solid #d2c6c6; border-radius: 5px;">
+
+        <button type="submit"
+            style="width: 100%; padding: 10px; background-color: #28a745; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 6px;">Register</button>
+    </form>
+
+    </br>
+    </br>
+    </br>
+    </br>
+
+    <div style="min-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px 0px #000;">
+        <h2 style="text-align: center;">Volunteer List</h2>
+        <table style="width: 100%; margin-top: 10px;" clellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th style="padding: 10px; border: 1px solid #ddd; font-size: 18px;">Name</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; font-size: 18px;">Email</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; font-size: 18px;">Phone Number</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; font-size: 18px;">Skills</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; font-size: 18px;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% localData.forEach((item) => { %>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;"><%= item.name %></td>
+                    <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;"><%= item.email %></td>
+                    <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;"><%= item.phone %></td>
+                    <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;"><%= item.skills %></td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">
+                        <a href="/update/<%= item.id %>" style="margin-right: 10px; display: inline-block; padding: 5px 10px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">Edit</a>
+                        <a href="/delete/<%= item.id %>" style=" display: inline-block; padding: 5px 10px; background-color: #cb0c0c; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">Delete</a>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+
+</body>
+
+</html>

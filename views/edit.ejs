@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>Register New Volunteers</title>
+</head>
+<body style="height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column; font-family: 'Courier New', Courier, monospace;">
+    <form style="max-width: 400px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px 0px #000;" action="/update/<%= item.id %>" method="post">
+        <h2 style="text-align: center;">Volunteer Registration Form</h2>
+        <input type="text" name="id" value="<%= item.id %>" hidden>
+        <label style="font-weight: bold;">Name:</label>
+        <input type="text" name="name" value="<%= item.name %>" style="outline: none; width: 100%; padding: 8px; margin: 6px 0px; border: 1px solid #d2c6c6; border-radius: 5px;">
+        
+        <label style="font-weight: bold;">Email:</label>
+        <input type="email" name="email" value="<%= item.email %>" style="outline: none; width: 100%; padding: 8px; margin: 6px 0px;  border: 1px solid #d2c6c6; border-radius: 5px;">
+        
+        <label style="font-weight: bold;">Phone Number:</label>
+        <input type="tel" name="phone" value="<%= item.phone %>" style="outline: none; width: 100%; padding: 8px; margin: 6px 0px; border: 1px solid #d2c6c6; border-radius: 5px;">
+        
+        <label style="font-weight: bold;">Skills:</label>
+        <input type="text" name="skills" value="<%= item.skills %>" style="outline: none; width: 100%; padding: 8px; margin: 6px 0px; border: 1px solid #d2c6c6; border-radius: 5px;">
+        
+        <button type="submit" style="width: 100%; padding: 10px; background-color: #28a745; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 6px;">Update Volunteer</button>
+    </form>
+</body>
+</html>
